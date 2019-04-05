@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jampp Research</title><link href="https://jampp.github.io/research/" rel="alternate"></link><link href="https://jampp.github.io/research/feeds/all.atom.xml" rel="self"></link><id>https://jampp.github.io/research/</id><updated>2018-02-02T00:00:00+01:00</updated><entry><title>Optimal bidding: a dual approach (Part I)</title><link href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html" rel="alternate"></link><published>2018-02-02T00:00:00+01:00</published><updated>2018-02-02T00:00:00+01:00</updated><author><name>Carlos Pita</name></author><id>tag:jampp.github.io,2018-02-02:/research/optimal-bidding-a-dual-approach-part-i.html</id><summary type="html">&lt;div style="display:none"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jampp Research - misc</title><link href="https://jampp.github.io/research/" rel="alternate"></link><link href="https://jampp.github.io/research/feeds/misc.atom.xml" rel="self"></link><id>https://jampp.github.io/research/</id><updated>2018-02-02T00:00:00+01:00</updated><entry><title>Optimal bidding: a dual approach (Part I)</title><link href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html" rel="alternate"></link><published>2018-02-02T00:00:00+01:00</published><updated>2018-02-02T00:00:00+01:00</updated><author><name>Carlos Pita</name></author><id>tag:jampp.github.io,2018-02-02:/research/optimal-bidding-a-dual-approach-part-i.html</id><summary type="html">&lt;div style="display:none"&gt;
 \[
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rz}{\R_0^+}
@@ -252,4 +252,4 @@ auctions.&lt;/p&gt;
 to every campaign, but here we can disregard this fact without loss of
 generality.&lt;/p&gt;
 &lt;p&gt;&lt;sup&gt;&lt;a id="fn.4" href="#fnr.4"&gt;4&lt;/a&gt;&lt;/sup&gt; Courtesy of emacs &lt;code&gt;M-x
-count-words&lt;/code&gt;&lt;/p&gt;</content></entry><entry><title>My First Review</title><link href="https://jampp.github.io/research/my-first-review.html" rel="alternate"></link><published>2010-12-03T10:20:00+01:00</published><updated>2010-12-03T10:20:00+01:00</updated><author><name>Carlos Pita</name></author><id>tag:jampp.github.io,2010-12-03:/research/my-first-review.html</id><summary type="html">&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;</content></entry></feed>
+count-words&lt;/code&gt;&lt;/p&gt;</content></entry></feed>

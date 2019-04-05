@@ -31,7 +31,21 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = False
 
+THEME = 'notmyidea'
 THEME_TEMPLATES_OVERRIDES = ["templates"]
+
+MARKDOWN = {
+    'extension_configs': {
+        'mdx_math': {'enable_dollar_delimiter': True},
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5'
+}
+
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = []
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
