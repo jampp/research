@@ -115,6 +115,11 @@
 
 </head>
 <body>
+<div style="display:none">
+\[
+{% block mathdefs %}{% endblock %}
+\]
+</div>
 
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
     <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
@@ -240,7 +245,5 @@
 {% endif %}
 
 {% block scripts %}{% endblock %}
-
-{% block math %}{% endblock %}
 </body>
 </html>

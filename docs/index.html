@@ -35,6 +35,44 @@
 
 </head>
 <body>
+<div style="display:none">
+\[
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rz}{\R_0^+}
+\newcommand{\Rp}{\R^+}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\opt}[3]{
+  \begin{aligned}
+    #1\quad  & #2 \\
+    \st\quad & #3
+  \end{aligned}
+}
+
+\newcommand{\st}{\text{s.t.}\ }
+\newcommand{\is}{\colon}
+\newcommand{\from}{\colon}
+\newcommand{\into}{\rightarrow}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\iif}{\Leftrightarrow}
+\newcommand{\suchthat}{\mid}
+\newcommand{\Land}{\bigwedge\limits}
+\newcommand{\Lor}{\bigvee\limits}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
+\newcommand{\lagr}{\mathcal{L}}
+\newcommand{\iprod}[1]{\langle #1 \rangle}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\sign}{sign}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\epi}{epi}
+\DeclareMathOperator*{\cl}{cl}
+\]
+</div>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -214,46 +252,6 @@ development of the mathematical foundations is in order, so …</p>
     </script>
     <!-- End Disqus Code -->
 
-
-
-
-<div style="display:none">
-\[
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\R_0^+}
-\newcommand{\Rp}{\R^+}
-\newcommand{\N}{\mathbb{N}}
-
-\newcommand{\opt}[3]{
-  \begin{aligned}
-    #1\quad  & #2 \\
-    \st\quad & #3
-  \end{aligned}
-}
-
-\newcommand{\st}{\text{s.t.}\ }
-\newcommand{\is}{\colon}
-\newcommand{\from}{\colon}
-\newcommand{\into}{\rightarrow}
-\newcommand{\then}{\Rightarrow}
-\newcommand{\iif}{\Leftrightarrow}
-\newcommand{\suchthat}{\mid}
-\newcommand{\Land}{\bigwedge\limits}
-\newcommand{\Lor}{\bigvee\limits}
-\newcommand{\mean}[1]{\overline{#1}}
-\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
-\newcommand{\lagr}{\mathcal{L}}
-\newcommand{\iprod}[1]{\langle #1 \rangle}
-
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\sign}{sign}
-\DeclareMathOperator*{\dom}{dom}
-\DeclareMathOperator*{\epi}{epi}
-\DeclareMathOperator*{\cl}{cl}
-\]
-</div>
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({

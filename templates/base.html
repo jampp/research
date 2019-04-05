@@ -1,9 +1,7 @@
 {% extends "!theme/base.html" %}
 
-{% block math %}
+{% block mathdefs %}
 {% raw %}
-<div style="display:none">
-\[
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rz}{\R_0^+}
 \newcommand{\Rp}{\R^+}
@@ -37,9 +35,10 @@
 \DeclareMathOperator*{\dom}{dom}
 \DeclareMathOperator*{\epi}{epi}
 \DeclareMathOperator*{\cl}{cl}
-\]
-</div>
+{% endraw %}
+{% endblock %}
 
+{% block scripts %}
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -52,5 +51,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
 </script>
-{% endraw %}
 {% endblock %}
