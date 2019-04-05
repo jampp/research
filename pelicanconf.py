@@ -7,6 +7,7 @@ SITENAME = 'Jampp Research'
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = ['images', 'extra']
 
 TIMEZONE = 'Europe/Paris'
 
@@ -31,8 +32,16 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = False
 
-THEME = 'notmyidea'
-THEME_TEMPLATES_OVERRIDES = ["templates"]
+THEME = 'theme'
+THEME_TEMPLATES_OVERRIDES = ['templates']
+BOOTSTRAP_THEME = 'readable'
+
+CUSTOM_CSS = 'extra/custom.css'
+CUSTOM_JS = 'extra/custom.js'
+
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.i18n'],
+}
 
 MARKDOWN = {
     'extension_configs': {
@@ -44,8 +53,5 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
-PLUGIN_PATHS = ["plugins"]
-PLUGINS = []
-
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['i18n_subsites']
