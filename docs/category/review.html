@@ -53,7 +53,7 @@ Jampp Research            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                         <li >
-                            <a href="https://jampp.github.io/research/category/misc.html">Misc</a>
+                            <a href="https://jampp.github.io/research/category/optimization.html">Optimization</a>
                         </li>
                         <li class="active">
                             <a href="https://jampp.github.io/research/category/review.html">Review</a>
@@ -97,6 +97,23 @@ Jampp Research            </a>
   </ul>
 </li>
 <!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://jampp.github.io/research/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-1">
+      <a href="https://jampp.github.io/research/tag/bidding.html">bidding</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="https://jampp.github.io/research/tag/data-science.html">data-science</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://jampp.github.io/research/tag/optimization.html">optimization</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
 
 <!-- Sidebar/Links -->
 <li class="list-group-item">
@@ -150,6 +167,45 @@ Jampp Research            </a>
 
 
 
+
+<div style="display:none">
+\[
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rz}{\R_0^+}
+\newcommand{\Rp}{\R^+}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\opt}[3]{
+  \begin{aligned}
+    #1\quad  & #2 \\
+    \st\quad & #3
+  \end{aligned}
+}
+
+\newcommand{\st}{\text{s.t.}\ }
+\newcommand{\is}{\colon}
+\newcommand{\from}{\colon}
+\newcommand{\into}{\rightarrow}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\iif}{\Leftrightarrow}
+\newcommand{\suchthat}{\mid}
+\newcommand{\Land}{\bigwedge\limits}
+\newcommand{\Lor}{\bigvee\limits}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
+\newcommand{\lagr}{\mathcal{L}}
+\newcommand{\iprod}[1]{\langle #1 \rangle}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\sign}{sign}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\epi}{epi}
+\DeclareMathOperator*{\cl}{cl}
+\]
+</div>
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -159,6 +215,7 @@ Jampp Research            </a>
     }
   });
 </script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
 </script>
 </body>

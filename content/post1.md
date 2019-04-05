@@ -1,65 +1,21 @@
 ---
-Author: Carlos Pita
 Title: Optimal bidding: a dual approach (Part I)
+Author: Carlos Pita
 Date: 2018-02-02
+Category: Optimization
+Tags: data-science, optimization, bidding
 ---
 
-<div style="display:none">
-\[
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\R_0^+}
-\newcommand{\Rp}{\R^+}
-\newcommand{\N}{\mathbb{N}}
-
-\newcommand{\opt}[3]{
-  \begin{aligned}
-    #1\quad  & #2 \\
-    \st\quad & #3
-  \end{aligned}
-}
-
-\newcommand{\st}{\text{s.t.}\ }
-\newcommand{\is}{\colon}
-\newcommand{\from}{\colon}
-\newcommand{\into}{\rightarrow}
-\newcommand{\then}{\Rightarrow}
-\newcommand{\iif}{\Leftrightarrow}
-\newcommand{\suchthat}{\mid}
-\newcommand{\Land}{\bigwedge\limits}
-\newcommand{\Lor}{\bigvee\limits}
-\newcommand{\mean}[1]{\overline{#1}}
-\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
-\newcommand{\lagr}{\mathcal{L}}
-\newcommand{\iprod}[1]{\langle #1 \rangle}
-
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\sign}{sign}
-\DeclareMathOperator*{\dom}{dom}
-\DeclareMathOperator*{\epi}{epi}
-\DeclareMathOperator*{\cl}{cl}
-\]
-</div>
-
-<style type="text/css">
-.theorem { background-color: #f5f5f5; font-style: italic; display: block; }
-.theorem .name, .theorem .number, .theorem .title {
-  font-weight: bold; font-style: normal; }
-.proof { display: block; }
-.proof .name { font-style: italic; }
-</style>
-
-xxxxxxHi all! This is the first of a series of posts about the way we optimize our
-bidding process. The bidding rules we follow are very principled and their
-rationale is not easily described in a short and sweet post because some
-preliminar development of the mathematical foundations is in order, so we
-decided to deploy this as a series of four posts. The goal is to have the time
-and space to achieve a good balance between rigor and intuition while keeping a
-comfortable pace. We will as well be posting about different related subjects
-(Lagrange duality, stochastic subgradient descent) throughout this year, but in
-this series we consider those topics as means to a rather specific end and not
-as interesting subjects *per se*.
+This is the first of a series of posts about the way we optimize our bidding
+process. The bidding rules we follow are very principled and their rationale is
+not easily described in a short and sweet post because some preliminar
+development of the mathematical foundations is in order, so we decided to deploy
+this as a series of four posts. The goal is to have the time and space to
+achieve a good balance between rigor and intuition while keeping a comfortable
+pace. We will as well be posting about different related subjects (Lagrange
+duality, stochastic subgradient descent) throughout this year, but in this
+series we consider those topics as means to a rather specific end and not as
+interesting subjects *per se*.
 
 As you probably already know, Jampp is a demand-side platform (DSP) that manages
 hundreds of advertising campaigns for dozens of clients
@@ -101,14 +57,14 @@ defining its main components.
 # Some preliminary definitions
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="org5a09be2">1</span>&nbsp;<span class="title">(Campaign)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="orgba10d10">1</span>&nbsp;<span class="title">(Campaign)</span>
 We have \(n\) advertising campaigns (\(i, j \in [n] = \{1,\cdots,n\}\)) competing
 for the RTB market.
 
 </div>
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="org931a92d">2</span>&nbsp;<span class="title">(Market)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="org7f5c474">2</span>&nbsp;<span class="title">(Market)</span>
 The RTB market consists of \(m\) auctions (\(k \in [m] = \{1,\cdots,m\}\)), each one
 characterized by:
 
@@ -128,7 +84,7 @@ otherwise, we assign it to some campaign and chose a bid and an ad for it. This
 policy constitutes our bidding strategy:
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="org8af06da">3</span>&nbsp;<span class="title">(Bidding strategy)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="org3f838a9">3</span>&nbsp;<span class="title">(Bidding strategy)</span>
 A bidding strategy \( x\from[m]\to[n]\times[\overline{a}]\times(0,\overline{b}]
 \cup \{(0,0,0)\}\) is a mapping from auctions to vectors \((i, a, b)\), where \(i\)
 is a campaign, \(a\) is an ad and \(b\) is a bid. As a convention, ignored auctions
@@ -141,7 +97,7 @@ We also define some functions that aggregate auctions across campaigns in order
 to simplify the exposition of optimization problems in the following sections.
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="orga41833d">4</span>&nbsp;<span class="title">(Aggregate functions)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="orgd1021d5">4</span>&nbsp;<span class="title">(Aggregate functions)</span>
 Given a strategy \(x\) and a campaign \(i\):
 
 -   \( C_i(x) = \sum_{(k,(j,a,b)) \in x \,\suchthat\, j=i} w_k(b) \cdot c_k(b) \) is
@@ -172,7 +128,7 @@ the problem. Actually, Jampp daily deals with two different types of problem:
 We now proceed to formally state the MBFP problem:
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="orga161337">5</span>&nbsp;<span class="title">(MBFP (Maximum Budget, Fixed Price) Problem)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="org1d72479">5</span>&nbsp;<span class="title">(MBFP (Maximum Budget, Fixed Price) Problem)</span>
 \[\opt{\max_{x \in \mathcal{X}}}
     {\sum_{i \in [n]} \bar{p_i} G_i(x) - C_i(x)}
     {\Land_{i \in [n]} \bar{p_i} G_i(x) \leq \bar{B_i}}\]
@@ -186,7 +142,7 @@ where:
 Similarly, the FBMP is formalized as:
 
 <div class="theorem definition">
-<span class="name">Definition</span>&nbsp;<span class="number" id="orgba51b82">6</span>&nbsp;<span class="title">(FBMP (Fixed Budget, Maximum Price) Problem)</span>
+<span class="name">Definition</span>&nbsp;<span class="number" id="orga42d1fb">6</span>&nbsp;<span class="title">(FBMP (Fixed Budget, Maximum Price) Problem)</span>
 \[\opt{\max_{x \in \mathcal{X}}}
     {\sum_{i \in [n]} \bar{b_i} - C_i(x)}
     {\Land_{i \in [n]} \left(
@@ -220,16 +176,16 @@ includes a clause to ensure honest work; that is, we aren&rsquo;t allowed to get
 margin over costs higher than \(\bar{M_i}\), even at an effective price lower than
 \(\bar{P_i}\). Let a picture speak for 148 words: <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 
-![img](fbmp1.png "Limiting our margin of profit in the FBMP model")
+![img](images/fbmp1.png "Limiting our margin of profit in the FBMP model")
 
 On the other hand, we could actually be facing an adverse market. In that case
 our margin will be just enough to meet the advertiser maximum price constraint:
 
-![img](fbmp2.png "Meeting the maximum price constraint in the FBMP model")
+![img](images/fbmp2.png "Meeting the maximum price constraint in the FBMP model")
 
 Last but not least, a quite nasty thing may happen: infeasibility.
 
-![img](fbmp3.png "Infeasibility in the FBMP model")
+![img](images/fbmp3.png "Infeasibility in the FBMP model")
 
 In this case we&rsquo;re unable to achieve a positive profit while, at the same time,
 abiding to the maximum price clause. After a few days of running a campaign we

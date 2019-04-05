@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>misc - Jampp Research</title>
+    <title>bidding - Jampp Research</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 
     <meta name="author" content="Carlos Pita" />
-    <meta name="keywords" content="misc" />
+    <meta name="keywords" content="bidding" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Jampp Research" />
@@ -33,8 +33,7 @@
         <link href="https://jampp.github.io/research/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jampp Research ATOM Feed"/>
 
-        <link href="https://jampp.github.io/research/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Jampp Research misc ATOM Feed"/>
+
 </head>
 <body>
 
@@ -52,8 +51,8 @@ Jampp Research            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="https://jampp.github.io/research/category/misc.html">Misc</a>
+                        <li >
+                            <a href="https://jampp.github.io/research/category/optimization.html">Optimization</a>
                         </li>
                         <li >
                             <a href="https://jampp.github.io/research/category/review.html">Review</a>
@@ -75,28 +74,18 @@ Jampp Research            </a>
         <div class="col-sm-9">
             <article>
                 <h2><a href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html">Optimal bidding: a dual approach (Part I)</a></h2>
-                <div class="summary"><div style="display:none">
-\[
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\R_0^+}
-\newcommand{\Rp}{\R^+}
-\newcommand{\N}{\mathbb{N}}
-
-\newcommand{\opt}[3]{
-  \begin{aligned}
-    #1\quad  & #2 \\
-    \st\quad & #3
-  \end{aligned}
-}
-
-\newcommand{\st}{\text{s.t.}\ }
-\newcommand{\is}{\colon}
-\newcommand{\from}{\colon}
-\newcommand{\into}{\rightarrow}
-\newcommand{\then}{\Rightarrow}
-\newcommand{\iif}{\Leftrightarrow}
-\newcommand{\suchthat}{\mid …</div>
+                <div class="summary"><p>This is the first of a series of posts about the way we optimize our bidding
+process. The bidding rules we follow are very principled and their rationale is
+not easily described in a short and sweet post because some preliminar
+development of the mathematical foundations is in order, so …</p>
                     <a class="btn btn-default btn-xs" href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="https://jampp.github.io/research/my-first-review.html">My First Review</a></h2>
+                <div class="summary"><p>Following is a review of my favorite mechanical keyboard.</p>
+                    <a class="btn btn-default btn-xs" href="https://jampp.github.io/research/my-first-review.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -117,6 +106,23 @@ Jampp Research            </a>
   </ul>
 </li>
 <!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="https://jampp.github.io/research/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group list-inline tagcloud" id="tags">
+    <li class="list-group-item tag-1">
+      <a href="https://jampp.github.io/research/tag/bidding.html">bidding</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="https://jampp.github.io/research/tag/data-science.html">data-science</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="https://jampp.github.io/research/tag/optimization.html">optimization</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
 
 <!-- Sidebar/Links -->
 <li class="list-group-item">
@@ -170,6 +176,45 @@ Jampp Research            </a>
 
 
 
+
+<div style="display:none">
+\[
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rz}{\R_0^+}
+\newcommand{\Rp}{\R^+}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\opt}[3]{
+  \begin{aligned}
+    #1\quad  & #2 \\
+    \st\quad & #3
+  \end{aligned}
+}
+
+\newcommand{\st}{\text{s.t.}\ }
+\newcommand{\is}{\colon}
+\newcommand{\from}{\colon}
+\newcommand{\into}{\rightarrow}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\iif}{\Leftrightarrow}
+\newcommand{\suchthat}{\mid}
+\newcommand{\Land}{\bigwedge\limits}
+\newcommand{\Lor}{\bigvee\limits}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
+\newcommand{\lagr}{\mathcal{L}}
+\newcommand{\iprod}[1]{\langle #1 \rangle}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\sign}{sign}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\epi}{epi}
+\DeclareMathOperator*{\cl}{cl}
+\]
+</div>
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -179,6 +224,7 @@ Jampp Research            </a>
     }
   });
 </script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
 </script>
 </body>

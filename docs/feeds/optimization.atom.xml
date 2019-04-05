@@ -1,80 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jampp Research - misc</title><link href="https://jampp.github.io/research/" rel="alternate"></link><link href="https://jampp.github.io/research/feeds/misc.atom.xml" rel="self"></link><id>https://jampp.github.io/research/</id><updated>2018-02-02T00:00:00+01:00</updated><entry><title>Optimal bidding: a dual approach (Part I)</title><link href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html" rel="alternate"></link><published>2018-02-02T00:00:00+01:00</published><updated>2018-02-02T00:00:00+01:00</updated><author><name>Carlos Pita</name></author><id>tag:jampp.github.io,2018-02-02:/research/optimal-bidding-a-dual-approach-part-i.html</id><summary type="html">&lt;div style="display:none"&gt;
-\[
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\R_0^+}
-\newcommand{\Rp}{\R^+}
-\newcommand{\N}{\mathbb{N}}
-
-\newcommand{\opt}[3]{
-  \begin{aligned}
-    #1\quad  &amp; #2 \\
-    \st\quad &amp; #3
-  \end{aligned}
-}
-
-\newcommand{\st}{\text{s.t.}\ }
-\newcommand{\is}{\colon}
-\newcommand{\from}{\colon}
-\newcommand{\into}{\rightarrow}
-\newcommand{\then}{\Rightarrow}
-\newcommand{\iif}{\Leftrightarrow}
-\newcommand{\suchthat}{\mid …&lt;/div&gt;</summary><content type="html">&lt;div style="display:none"&gt;
-\[
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Rz}{\R_0^+}
-\newcommand{\Rp}{\R^+}
-\newcommand{\N}{\mathbb{N}}
-
-\newcommand{\opt}[3]{
-  \begin{aligned}
-    #1\quad  &amp; #2 \\
-    \st\quad &amp; #3
-  \end{aligned}
-}
-
-\newcommand{\st}{\text{s.t.}\ }
-\newcommand{\is}{\colon}
-\newcommand{\from}{\colon}
-\newcommand{\into}{\rightarrow}
-\newcommand{\then}{\Rightarrow}
-\newcommand{\iif}{\Leftrightarrow}
-\newcommand{\suchthat}{\mid}
-\newcommand{\Land}{\bigwedge\limits}
-\newcommand{\Lor}{\bigvee\limits}
-\newcommand{\mean}[1]{\overline{#1}}
-\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\sderiv}[2]{\frac{\partial^2 #1}{\partial #2}}
-\newcommand{\lagr}{\mathcal{L}}
-\newcommand{\iprod}[1]{\langle #1 \rangle}
-
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\sign}{sign}
-\DeclareMathOperator*{\dom}{dom}
-\DeclareMathOperator*{\epi}{epi}
-\DeclareMathOperator*{\cl}{cl}
-\]
-&lt;/div&gt;
-
-&lt;style type="text/css"&gt;
-.theorem { background-color: #f5f5f5; font-style: italic; display: block; }
-.theorem .name, .theorem .number, .theorem .title {
-  font-weight: bold; font-style: normal; }
-.proof { display: block; }
-.proof .name { font-style: italic; }
-&lt;/style&gt;
-
-&lt;p&gt;xxxxxxHi all! This is the first of a series of posts about the way we optimize our
-bidding process. The bidding rules we follow are very principled and their
-rationale is not easily described in a short and sweet post because some
-preliminar development of the mathematical foundations is in order, so we
-decided to deploy this as a series of four posts. The goal is to have the time
-and space to achieve a good balance between rigor and intuition while keeping a
-comfortable pace. We will as well be posting about different related subjects
-(Lagrange duality, stochastic subgradient descent) throughout this year, but in
-this series we consider those topics as means to a rather specific end and not
-as interesting subjects &lt;em&gt;per se&lt;/em&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jampp Research - Optimization</title><link href="https://jampp.github.io/research/" rel="alternate"></link><link href="https://jampp.github.io/research/feeds/optimization.atom.xml" rel="self"></link><id>https://jampp.github.io/research/</id><updated>2018-02-02T00:00:00+01:00</updated><entry><title>Optimal bidding: a dual approach (Part I)</title><link href="https://jampp.github.io/research/optimal-bidding-a-dual-approach-part-i.html" rel="alternate"></link><published>2018-02-02T00:00:00+01:00</published><updated>2018-02-02T00:00:00+01:00</updated><author><name>Carlos Pita</name></author><id>tag:jampp.github.io,2018-02-02:/research/optimal-bidding-a-dual-approach-part-i.html</id><summary type="html">&lt;p&gt;This is the first of a series of posts about the way we optimize our bidding
+process. The bidding rules we follow are very principled and their rationale is
+not easily described in a short and sweet post because some preliminar
+development of the mathematical foundations is in order, so …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is the first of a series of posts about the way we optimize our bidding
+process. The bidding rules we follow are very principled and their rationale is
+not easily described in a short and sweet post because some preliminar
+development of the mathematical foundations is in order, so we decided to deploy
+this as a series of four posts. The goal is to have the time and space to
+achieve a good balance between rigor and intuition while keeping a comfortable
+pace. We will as well be posting about different related subjects (Lagrange
+duality, stochastic subgradient descent) throughout this year, but in this
+series we consider those topics as means to a rather specific end and not as
+interesting subjects &lt;em&gt;per se&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;As you probably already know, Jampp is a demand-side platform (DSP) that manages
 hundreds of advertising campaigns for dozens of clients
 (advertisers). Advertising inventory coming from multiples sources is
@@ -111,14 +48,14 @@ formal setting in order to properly formulate the problem, so we start by
 defining its main components.&lt;/p&gt;
 &lt;h1&gt;Some preliminary definitions&lt;/h1&gt;
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org5a09be2"&gt;1&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Campaign)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orgba10d10"&gt;1&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Campaign)&lt;/span&gt;
 We have \(n\) advertising campaigns (\(i, j \in [n] = \{1,\cdots,n\}\)) competing
 for the RTB market.
 
 &lt;/div&gt;
 
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org931a92d"&gt;2&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Market)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org7f5c474"&gt;2&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Market)&lt;/span&gt;
 The RTB market consists of \(m\) auctions (\(k \in [m] = \{1,\cdots,m\}\)), each one
 characterized by:
 
@@ -137,7 +74,7 @@ set &lt;script type="math/tex"&gt;[\overline{a}] = \{1,\cdots,\overline{a}\}&lt;
 otherwise, we assign it to some campaign and chose a bid and an ad for it. This
 policy constitutes our bidding strategy:&lt;/p&gt;
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org8af06da"&gt;3&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Bidding strategy)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org3f838a9"&gt;3&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Bidding strategy)&lt;/span&gt;
 A bidding strategy \( x\from[m]\to[n]\times[\overline{a}]\times(0,\overline{b}]
 \cup \{(0,0,0)\}\) is a mapping from auctions to vectors \((i, a, b)\), where \(i\)
 is a campaign, \(a\) is an ad and \(b\) is a bid. As a convention, ignored auctions
@@ -149,7 +86,7 @@ possible strategies.
 &lt;p&gt;We also define some functions that aggregate auctions across campaigns in order
 to simplify the exposition of optimization problems in the following sections.&lt;/p&gt;
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orga41833d"&gt;4&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Aggregate functions)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orgd1021d5"&gt;4&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(Aggregate functions)&lt;/span&gt;
 Given a strategy \(x\) and a campaign \(i\):
 
 -   \( C_i(x) = \sum_{(k,(j,a,b)) \in x \,\suchthat\, j=i} w_k(b) \cdot c_k(b) \) is
@@ -180,7 +117,7 @@ the problem. Actually, Jampp daily deals with two different types of problem:&lt
 &lt;/ol&gt;
 &lt;p&gt;We now proceed to formally state the MBFP problem:&lt;/p&gt;
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orga161337"&gt;5&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(MBFP (Maximum Budget, Fixed Price) Problem)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="org1d72479"&gt;5&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(MBFP (Maximum Budget, Fixed Price) Problem)&lt;/span&gt;
 \[\opt{\max_{x \in \mathcal{X}}}
     {\sum_{i \in [n]} \bar{p_i} G_i(x) - C_i(x)}
     {\Land_{i \in [n]} \bar{p_i} G_i(x) \leq \bar{B_i}}\]
@@ -193,7 +130,7 @@ where:
 
 &lt;p&gt;Similarly, the FBMP is formalized as:&lt;/p&gt;
 &lt;div class="theorem definition"&gt;
-&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orgba51b82"&gt;6&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(FBMP (Fixed Budget, Maximum Price) Problem)&lt;/span&gt;
+&lt;span class="name"&gt;Definition&lt;/span&gt;&amp;nbsp;&lt;span class="number" id="orga42d1fb"&gt;6&lt;/span&gt;&amp;nbsp;&lt;span class="title"&gt;(FBMP (Fixed Budget, Maximum Price) Problem)&lt;/span&gt;
 \[\opt{\max_{x \in \mathcal{X}}}
     {\sum_{i \in [n]} \bar{b_i} - C_i(x)}
     {\Land_{i \in [n]} \left(
@@ -225,12 +162,12 @@ huge margin of profit by barely meeting her constraints. So the contract
 includes a clause to ensure honest work; that is, we aren&amp;rsquo;t allowed to get a
 margin over costs higher than &lt;script type="math/tex"&gt;\bar{M_i}&lt;/script&gt;, even at an effective price lower than
 &lt;script type="math/tex"&gt;\bar{P_i}&lt;/script&gt;. Let a picture speak for 148 words: &lt;sup&gt;&lt;a id="fnr.4" class="footref" href="#fn.4"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img" src="fbmp1.png" title="Limiting our margin of profit in the FBMP model"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="images/fbmp1.png" title="Limiting our margin of profit in the FBMP model"&gt;&lt;/p&gt;
 &lt;p&gt;On the other hand, we could actually be facing an adverse market. In that case
 our margin will be just enough to meet the advertiser maximum price constraint:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img" src="fbmp2.png" title="Meeting the maximum price constraint in the FBMP model"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="images/fbmp2.png" title="Meeting the maximum price constraint in the FBMP model"&gt;&lt;/p&gt;
 &lt;p&gt;Last but not least, a quite nasty thing may happen: infeasibility.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img" src="fbmp3.png" title="Infeasibility in the FBMP model"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="images/fbmp3.png" title="Infeasibility in the FBMP model"&gt;&lt;/p&gt;
 &lt;p&gt;In this case we&amp;rsquo;re unable to achieve a positive profit while, at the same time,
 abiding to the maximum price clause. After a few days of running a campaign we
 are often able to approximately assess its feasibility; in case it happens to be
@@ -252,4 +189,4 @@ auctions.&lt;/p&gt;
 to every campaign, but here we can disregard this fact without loss of
 generality.&lt;/p&gt;
 &lt;p&gt;&lt;sup&gt;&lt;a id="fn.4" href="#fnr.4"&gt;4&lt;/a&gt;&lt;/sup&gt; Courtesy of emacs &lt;code&gt;M-x
-count-words&lt;/code&gt;&lt;/p&gt;</content></entry></feed>
+count-words&lt;/code&gt;&lt;/p&gt;</content><category term="data-science"></category><category term="optimization"></category><category term="bidding"></category></entry></feed>

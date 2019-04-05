@@ -53,5 +53,9 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
+DISPLAY_TAGS_ON_SIDEBAR = True
+DISPLAY_TAGS_INLINE = True
+TAGS_URL = 'tags.html'
+
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['i18n_subsites']
+PLUGINS = ['i18n_subsites', 'tag_cloud']
