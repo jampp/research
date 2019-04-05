@@ -1,3 +1,4 @@
+.avatar { width: 24px; height: 24px; }
 .theorem { background-color: #f5f5f5; font-style: italic; display: block; }
 .theorem .name, .theorem .number, .theorem .title {
   font-weight: bold; font-style: normal; }

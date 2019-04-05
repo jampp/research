@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Carlos Pita'
+AUTHOR = 'Jampp'
 SITENAME = 'Jampp Research'
 SITEURL = ''
 
 PATH = 'content'
-STATIC_PATHS = ['images', 'extra']
+STATIC_PATHS = ['images', 'avatars', 'extra']
 
 TIMEZONE = 'Europe/Paris'
 
@@ -53,9 +53,17 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+DISPLAY_AUTHORS_ON_SIDEBAR = True
 DISPLAY_TAGS_ON_SIDEBAR = True
-DISPLAY_TAGS_INLINE = True
 TAGS_URL = 'tags.html'
+
+SHOW_ARTICLE_AUTHOR = True
+
+DISQUS_SITENAME = 'jampp-research'
+
+AUTHOR_AVATARS = 'images/avatars'
+AUTHOR_IMAGES = 'images/authors'
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['i18n_subsites', 'tag_cloud']
